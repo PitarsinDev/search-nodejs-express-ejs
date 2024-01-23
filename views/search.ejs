@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+  <div class="flex justify-center">
+    <div class="p-10">
+        <h1 class="text-indigo-600 text-2xl">Search Results for : <span class="text-blue-600"><%= query %></span></h1>
+        <div class="bg-indigo-600 w-5 h-1 rounded-full"></div>
+    </div>
+  </div>
+  <% if (products.length === 0) { %>
+    <p class="text-center text-rose-500 text-3xl">No results found.</p>
+  <% } else { %>
+    <div class="flex justify-center">
+        <ul>
+            <% products.forEach(product => { %>
+              <li class="text-indigo-600 p-2"><%= product.category %> - <span class="text-rose-600"><%= product.name %></span></li>
+            <% }); %>
+          </ul>
+    </div>
+  <% } %>
+
+  <div class="flex justify-center p-10">
+    <a href="/" class="text-white shadow-md bg-indigo-600 rounded-full px-5">
+        Back to home
+    </a>
+  </div>
+</body>
+</html>

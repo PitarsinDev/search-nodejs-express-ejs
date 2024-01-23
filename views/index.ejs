@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Categories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+<body>
+  <div class="flex justify-center">
+    <div class="p-10">
+        <h1 class="text-center text-2xl text-indigo-600">Product Categories</h1>
+        <div class="bg-indigo-600 w-5 h-1 rounded-full"></div>
+    </div>
+  </div>
+  <div class="flex justify-center">
+    <form action="/search" method="get" class="bg-indigo-600 p-2 rounded-md flex gap-2">
+        <label for="search" class="text-white">Search :</label>
+        <input type="text" id="search" name="q" required class="rounded-md pl-2 text-zinc-500">
+        <button type="submit" class="bg-white text-indigo-600 px-5 rounded-md">Search</button>
+      </form>
+  </div>
+  <div class="flex justify-center p-10">
+    <ul>
+        <% products.forEach(product => { %>
+          <li class="text-indigo-600 p-2 text-zinc-600"><span class="text-blue-600"><%= product.category %></span> - <span class="text-rose-600"><%= product.name %></span></li>
+        <% }); %>
+      </ul>
+  </div>
+</body>
+</html>
